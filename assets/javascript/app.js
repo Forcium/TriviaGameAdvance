@@ -32,8 +32,7 @@ $(document).ready(function() {
     $("#choice4").html(q1answer[3]);
 
 
-    function clickAnswers() {
-      $("#choice2")
+    $('#choice2').on("click", function() {
       correct = correct + 1;
       $("#splash").html('<img src="../assets/images/mediumrare.jpg" />');
       console.log(correct);
