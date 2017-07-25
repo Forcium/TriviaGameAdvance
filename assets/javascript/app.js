@@ -4,10 +4,13 @@ $(document).ready(function() {
   var question2 = ["What is ginger used for when eating sushi?"];
   var question3 = ["Which of these are not authentic mexican food?"];
 
-  var q1answer1 = ["Rare"];
-  var q1answer2 = ["Medium Rare"];
-  var q1answer3 = ["Medium"];
-  var q1answer4 = ["Well Done"];
+  var correct = 0;
+  var incorrect = 0;
+
+  var q1answer = ["Rare", "Medium Rare", "Medium", "Well Done"];
+  var q2answer = ["Spicing it up", "Garnish", "Cleaning taste palate", "Cover up the wasabi taste"];
+  var q3answer = ["Taco", "Tamales", "Enchiladas", "Burritos"];
+
 
   var count = 16;
   var counter = setInterval(timer, 1000); //1000 will  run it every 1 second
@@ -15,27 +18,29 @@ $(document).ready(function() {
   function timer(){
     count = count - 1;
     if (count <= -1){
-      // alert("Time's Up!  Next question!")
+      $("#splash").html('<img src="../assets/images/time_mediumrare.jpg" />'); //change to image that shows "TIME OUT!"
        return;
     }
     $("#timer").html(count + " secs");
   }
 
-  $("#trivia").html(question1);
-      console.log(question1);
-    if(question1){
-      $("#choice1").html(q1answer1);
-      $("#choice2").html(q1answer2);
-      $("#choice3").html(q1answer3);
-      $("#choice4").html(q1answer4);
-    }
+    $("#trivia").html(question1);
+        console.log(question1);
+    $("#choice1").html(q1answer[0]);
+    $("#choice2").html(q1answer[1]);
+    $("#choice3").html(q1answer[2]);
+    $("#choice4").html(q1answer[3]);
 
-    $('#choice1').on("click", function() {
-  	      amp = amp + cryst1;
-            console.log (amp + " c1 amped up");
-          $("#cAmp").html(amp);
-          clickTotal();     //run function to check if need to update win/loss
-        })
+
+    function clickAnswers() {
+      $("#choice2")
+      correct = correct + 1;
+      $("#splash").html('<img src="../assets/images/mediumrare.jpg" />');
+      console.log(correct);
+      return;
+
+    })
+
 
 
 

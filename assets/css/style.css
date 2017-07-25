@@ -2,13 +2,11 @@ body {
   background-image: url("../images/foodbackground.jpg");
   background-color: lightgray;
   margin: auto 2%;
-
 }
 
 h1 {
   color: #99ffcc;
   font-size: 50px;
-
 }
 
 h4 {
@@ -22,11 +20,6 @@ span {
   font-weight: bold;
   font-size: 40px;
 }
-
-/*#innerfront {
-  border: 5px solid red;
-  height: 300px;
-}*/
 
 .start {
   border: 2px solid blue;
@@ -42,6 +35,7 @@ span {
   color: black;
 }
 
-/*.row {
-  border: solid 2px red;
-}*/
+#splash {
+  margin-left: 20%;
+  margin-right: 20%;
+}
