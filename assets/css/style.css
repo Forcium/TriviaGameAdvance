@@ -23,6 +23,25 @@ span {
   font-size: 40px;
 }
 
+/*#innerfront {
+  border: 5px solid red;
+  height: 300px;
+}*/
+
+.start {
+  border: 2px solid blue;
+  background-color: lightgray;
+  text-align: center;
+  width: 300px;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 60%;
+}
+
+.coloredh1 {
+  color: black;
+}
+
 /*.row {
   border: solid 2px red;
 }*/
