@@ -12,39 +12,43 @@ $(document).ready(function() {
   var q3answer = ["Taco", "Tamales", "Enchiladas", "Burritos"];
 
 
-  var count = 16;
-  var counter = setInterval(timer, 1000); //1000 will  run it every 1 second
+  var count = 15;
+  var counter;
 
-  function timer(){
-    count = count - 1;
-    if (count <= -1){
-      $("#splash").html('<img src="../assets/images/time_mediumrare.jpg" />'); //change to image that shows "TIME OUT!"
-       return;
+  function timeDown() {
+      counter = setInterval(decrement, 1000);
     }
-    $("#timer").html(count + " secs");
-  }
 
-    $("#trivia").html(question1);
-        console.log(question1);
-    $("#choice1").html(q1answer[0]);
-    $("#choice2").html(q1answer[1]);
-    $("#choice3").html(q1answer[2]);
-    $("#choice4").html(q1answer[3]);
+  function decrement() {
+      count--;
+      $("#timerCount").html(count);
 
+      if (count === 0) {
+        stop();
+        alert("Time Up!");
+      }
+    }
 
-    $('#choice2').on("click", function() {
-      correct = correct + 1;
-      $("#splash").html('<img src="../assets/images/mediumrare.jpg" />');
-      console.log(correct);
-      return;
+  $('#clickMe').on("click", function() {
 
-    })
+    $("#clickMe").remove();
+    $("#timerCount").html(count);
+    $("#question").html(question1);
+    $("#answer1").html(q1answer[0]);
+    $("#answer2").html(q1answer[1]);
+    $("#answer3").html(q1answer[2]);
+    $("#answer4").html(q1answer[3]);
 
+    timeDown();
+  })
 
-
-
-
-
+    // count = count - 1;
+    // if (count <= -1){
+    //   $("#innerFront").html('<img src="../assets/images/time_mediumrare.jpg" />'); //change to image that shows "TIME OUT!"
+    //    return;
+    // }
+    //
+    //   $("#timerCount").html(count + " secs");
 
 
 });
