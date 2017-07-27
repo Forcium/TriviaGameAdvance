@@ -13,7 +13,7 @@
 
   <div class="container">
     <div class="page-header">
-          <h1>Food Trivia!</h1>
+          <h1 id="indicator">Food Trivia!</h1>
     </div>
   </div>
 
@@ -22,24 +22,27 @@
       <div class="col-md-2 col-sm-2 col-xs2">
       </div>
 
-
-
       <div class="col-md-8 col-sm-8 col-xs8" id="innerFront">
 
           <button id="clickMe" type="button" class="btn btn-primary btn-lg">START</button>
           <div class="triviaStart">
-            <div class="timerCount">4</div></br>
+            <div class="timerCount"></div></br>
             <div class="question"></div></br>
             <div class="answer answer1"></div></br>
             <div class="answer answer2"></div></br>
             <div class="answer answer3"></div></br>
             <div class="answer answer4"></div></br>
           </div>
+          <div class="triviaEnd">
+            <div class="totalCorrect"></div></br>
+            <div class="totalWrong"></div></br>
+            <div class="totalUnanswered"></div></br>
+            <button id="restart" type="button" class="btn btn-primary btn-lg">RESTART</button>
+          </div>
+
+          <div id="pics"></div>
 
       </div>
-
-
-
 
       <div class="col-md-2 col-sm-2 col-xs2">
       </div>

@@ -13,13 +13,27 @@ button {
 }
 
 .triviaStart{
-  border: solid 0.5px red;
+
   margin: 10%;
+  visibility: hidden;
+}
+
+.triviaEnd{
+
+  margin: 10%;
+  visibility: hidden;
+}
+
+#pics{
+
+  margin: 10%;
+  width: 400px;
+  height: 300px;
+
 }
 
 #innerFront {
-  border: solid 1px blue;
-  height: 400px;
+  margin-top: 0;
+  height: 100px;
   text-align: center;
-  padding: 2%;
 }
