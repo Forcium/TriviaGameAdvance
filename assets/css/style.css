@@ -13,23 +13,21 @@ button {
 }
 
 .triviaStart{
-
   margin: 10%;
-  visibility: hidden;
+  border: 2px solid red;
 }
 
 .triviaEnd{
 
   margin: 10%;
-  visibility: hidden;
+  border: 2px solid blue;
 }
 
 #pics{
+  margin-left: 30%;
+  margin-right: 30%;
 
-  margin: 10%;
-  width: 400px;
-  height: 300px;
-
+  border: 2px solid green;
 }
 
 #innerFront {

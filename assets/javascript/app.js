@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+$('.triviaEnd').hide();
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~Global Variables~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   var question = ["What rarity should all steak be served at?", "What is ginger used for when eating sushi?", "Which of these are not authentic mexican food?"];
 
@@ -18,6 +18,8 @@ $(document).ready(function() {
 
   var count = 11;
   var counter;
+
+  var pics = ["../assets/images/timeout.png", "../assets/images/correct.png", "../assets/images/incorrect.png"]
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~Functions~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   function timeDown() {
@@ -25,71 +27,97 @@ $(document).ready(function() {
   }
 
   function decrement() {
-    count = count -1;
+    count--;
     $(".timerCount").html(count);
+    timeOver();
+  }
+
+  function timeOver() {
     if ($(".timerCount").html() == 0) {
-      unAnswered += 1;
-      total += 1;
-      clearInterval(counter);
-      count = 11;
-      showQuestions();
-      showAnswers();
-      timeDown();
-      console.log("Unanswered: " +unAnswered);
-      console.log("!!!!"+total);
-      console.log("countdown" +counter);
-      totals();
+      $("#pics").empty();
+      $(".triviaStart").hide();
+      $("#pics").show();
+      $("#pics").html("<img src='" + pics[0] + "'/>");
+        setTimeout(function(){
+          unAnswered += 1;
+          total += 1;
+          clearInterval(counter);
+          count = 11;
+          showQuestions();
+          showAnswers();
+          timeDown();
+          $(".triviaStart").show();
+          $("#pics").hide();
+          totals();
+
+        }, 3000);
+          return;
     }
   }
 
   $('.answer').on("click", function() {
     for(var i = 0; i < rightAns.length; i++){
       if($(this).html() == rightAns[i]){
-        correct += 1;
-        total += 1;
-        gotRight = true;
-        clearInterval(counter);
-        count = 11;
-        showQuestions();
-        showAnswers();
-        timeDown();
-        console.log("Correct: " +correct);
-        totals();
+        $("#pics").empty();
+        $(".triviaStart").hide();
+        $("#pics").show();
+        $("#pics").html("<img src='" + pics[1] + "'/>");
+          setTimeout(function(){
+            correct += 1;
+            total += 1;
+            clearInterval(counter);
+            count = 11;
+            showQuestions();
+            showAnswers();
+            timeDown();
+            $(".triviaStart").show();
+            $("#pics").hide();
+            totals();
+          }, 3000);
         return;
       }
     }
     if(gotRight === false){
-      incorrect += 1;
-      total += 1;
-      clearInterval(counter);
-      count = 11;
-      showQuestions();
-      showAnswers();
-      console.log("Wrong: " +incorrect);
-      timeDown();
-      totals();
+      $("#pics").empty();
+      $(".triviaStart").hide();
+      $("#pics").show();
+      $("#pics").html("<img src='" + pics[2] + "'/>");
+        setTimeout(function(){
+          incorrect += 1;
+          total += 1;
+          clearInterval(counter);
+          count = 11;
+          showQuestions();
+          showAnswers();
+          timeDown();
+          $(".triviaStart").show();
+          $("#pics").hide();
+          totals();
+        }, 3000);
+      return;
     }
     gotRight = false;
 });
 
 function totals() {
   if(total == 3) {
-    $(".triviaStart").css("visibility","hidden");
-    $(".triviaEnd").css("visibility", "visible");
+    $(".triviaStart").hide();
+    $(".triviaEnd").show();
     $(".totalCorrect").html("Total Correct: "+correct);
     $(".totalWrong").html("Total Wrong: "+incorrect);
     $(".totalUnanswered").html("Total Unanswered: "+unAnswered);
+    clearInterval(counter);
+    return;
   }
-  return;
+
 }
 
 
-
-
-
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~Start - Click~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
     $('#clickMe').on("click", function() {
-      $(".triviaStart").css("visibility", "visible");
+      $(".triviaStart").show();
       $("#clickMe").remove();
       $(".question").html(question[0]);
       $(".answer1").html(answerBulk[0][0]);
@@ -97,13 +125,13 @@ function totals() {
       $(".answer3").html(answerBulk[0][2]);
       $(".answer4").html(answerBulk[0][3]);
         timeDown();
-
     }) //click function closing tag
 
 
+
     $('#restart').on("click", function() {
-      $(".triviaStart").css("visibility", "visible");
-      $(".triviaEnd").css("visibility", "hidden");
+      $(".triviaStart").show();
+      $(".triviaEnd").hide();
       $(".question").html(question[0]);
       $(".answer1").html(answerBulk[0][0]);
       $(".answer2").html(answerBulk[0][1]);
