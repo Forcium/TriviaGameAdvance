@@ -19,7 +19,7 @@ $('.triviaEnd').hide();
   var count = 11;
   var counter;
 
-  var pics = ["../assets/images/timeout.png", "../assets/images/correct.png", "../assets/images/incorrect.png"]
+  var pics = ["assets/images/timeout.png", "assets/images/correct.png", "assets/images/incorrect.png"]
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~Functions~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   function timeDown() {
