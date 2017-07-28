@@ -33,6 +33,7 @@ $('.triviaEnd').hide();
   }
 
   function timeOver() {
+    for(var i = 0; i < rightAns.length; i++){
     if ($(".timerCount").html() == 0) {
       $("#pics").empty();
       $(".triviaStart").hide();
@@ -52,6 +53,7 @@ $('.triviaEnd').hide();
 
         }, 3000);
           return;
+      }
     }
   }
 
@@ -61,7 +63,7 @@ $('.triviaEnd').hide();
         $("#pics").empty();
         $(".triviaStart").hide();
         $("#pics").show();
-        $("#pics").html("<img src='" + pics[1] + "'/>");
+        $("#pics").html("<img src='" + pics[1] + "''/>");
           setTimeout(function(){
             correct += 1;
             total += 1;
